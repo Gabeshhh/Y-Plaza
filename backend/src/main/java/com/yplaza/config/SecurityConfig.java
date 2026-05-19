@@ -120,3 +120,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+<<<<<<< HEAD
+=======
+
+// Test
+>>>>>>> kaaption
