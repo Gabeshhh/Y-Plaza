@@ -1,3 +1,5 @@
+// Crée en db : 13 agences - 5 utilisateyrs - 10 biens immo 
+
 package com.yplaza.config;
 
 import com.yplaza.entity.*;
