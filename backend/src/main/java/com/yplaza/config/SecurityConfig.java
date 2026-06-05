@@ -1,3 +1,10 @@
+// Config de Spring Boot 
+/* 
+    JWT sans session 
+    règles d'accès (route / rôle)
+*/
+
+
 package com.yplaza.config;
 
 import com.yplaza.repository.UserRepository;
@@ -120,8 +127,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-<<<<<<< HEAD
-=======
-
-// Test
->>>>>>> kaaption
