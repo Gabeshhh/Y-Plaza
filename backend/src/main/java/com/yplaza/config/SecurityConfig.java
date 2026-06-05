@@ -5,7 +5,7 @@
 */
 
 
-package com.yplaza.config;
+package main.java.com.yplaza.config;
 
 import com.yplaza.repository.UserRepository;
 import com.yplaza.security.JwtAuthFilter;
