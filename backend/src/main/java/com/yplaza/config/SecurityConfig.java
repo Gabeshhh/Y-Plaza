@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Config de Spring Boot 
 /* 
     JWT sans session 
@@ -6,6 +7,9 @@
 
 
 package main.java.com.yplaza.config;
+=======
+package com.yplaza.config;
+>>>>>>> kaaption
 
 import com.yplaza.repository.UserRepository;
 import com.yplaza.security.JwtAuthFilter;
@@ -126,4 +130,10 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+<<<<<<< HEAD
 }
+=======
+}
+
+// Test
+>>>>>>> kaaption

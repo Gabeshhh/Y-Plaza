@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // Crée en db : 13 agences - 5 utilisateyrs - 10 biens immo 
 
+=======
+>>>>>>> kaaption
 package com.yplaza.config;
 
 import com.yplaza.entity.*;
