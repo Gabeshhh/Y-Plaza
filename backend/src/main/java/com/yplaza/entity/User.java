@@ -1,4 +1,5 @@
-package com.yplaza.entity;
+package main.java.com.yplaza.entity;
+
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

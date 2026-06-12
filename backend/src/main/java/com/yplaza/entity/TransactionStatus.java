@@ -1,4 +1,4 @@
-package com.yplaza.entity;
+package main.java.com.yplaza.entity;
 
 /** Statut d'une transaction immobilière */
 public enum TransactionStatus {
