@@ -1,4 +1,4 @@
-package main.java.com.yplaza.entity;
+package com.yplaza.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

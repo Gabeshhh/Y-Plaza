@@ -1,4 +1,4 @@
-package main.java.com.yplaza.security;
+package com.yplaza.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

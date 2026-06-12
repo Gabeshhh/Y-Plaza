@@ -1,23 +1,6 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> main
-// Config de Spring Boot 
-/* 
-    JWT sans session 
-    règles d'accès (route / rôle)
-*/
-
-
-package main.java.com.yplaza.config;
-<<<<<<< HEAD
-=======
-=======
 package com.yplaza.config;
->>>>>>> kaaption
->>>>>>> main
 
-import com.yplaza.repository.UserRepository;
+import com.yplaza.security.CustomUserDetailsService;
 import com.yplaza.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,8 +16,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -47,8 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Configuration de sécurité Spring Security.
- * Stateless JWT + CORS configuré + autorisation par rôles.
+ * Configuration Spring Security : stateless JWT + CORS + autorisation par rôles.
  */
 @Configuration
 @EnableWebSecurity
@@ -57,7 +37,7 @@ import java.util.List;
 public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
-    private final UserRepository userRepository;
+    private final CustomUserDetailsService userDetailsService;
 
     @Value("${app.cors.allowed-origins}")
     private String allowedOrigins;
@@ -68,25 +48,19 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                // Endpoints publics
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/properties/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/agencies/**").permitAll()
-                // Analytics — direction et IT seulement
                 .requestMatchers("/api/analytics/**")
                     .hasAnyRole("DIRECTION", "IT_SUPPORT")
-                // Gestion biens — commerciaux et admins
                 .requestMatchers(HttpMethod.POST, "/api/properties/**")
                     .hasAnyRole("COMMERCIAL", "DIRECTION", "IT_SUPPORT")
                 .requestMatchers(HttpMethod.PUT, "/api/properties/**")
                     .hasAnyRole("COMMERCIAL", "DIRECTION", "IT_SUPPORT")
                 .requestMatchers(HttpMethod.DELETE, "/api/properties/**")
                     .hasAnyRole("DIRECTION", "IT_SUPPORT")
-                // Transactions — tous les authentifiés
                 .requestMatchers("/api/transactions/**").authenticated()
-                // Admin
                 .requestMatchers("/api/admin/**").hasAnyRole("DIRECTION", "IT_SUPPORT")
-                // Tout le reste — authentifié
                 .anyRequest().authenticated()
             )
             .sessionManagement(session ->
@@ -112,16 +86,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException(
-                        "Utilisateur non trouvé : " + username));
-    }
-
-    @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService());
+        provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
@@ -136,13 +103,4 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-<<<<<<< HEAD
 }
-=======
-}
-<<<<<<< HEAD
-=======
-
-// Test
->>>>>>> kaaption
->>>>>>> main

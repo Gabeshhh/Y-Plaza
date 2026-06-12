@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { propertiesAPI } from '../../services/api'
-import PropertyCard from '../property/PropertyCard'
-import SearchBar from '../property/SearchBar'
-import { usePropertyFilters, usePagination } from '../../hooks'
+import { propertiesAPI } from '../services/api'
+import PropertyCard from '../components/property/PropertyCard'
+import SearchBar from '../components/property/SearchBar'
+import { usePropertyFilters, usePagination } from '../hooks'
 
 export default function PropertiesPage() {
   const [searchParams] = useSearchParams()

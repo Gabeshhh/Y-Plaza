@@ -1,4 +1,4 @@
-package main.java.com.yplaza.dto.response;
+package com.yplaza.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

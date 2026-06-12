@@ -1,4 +1,4 @@
-package main.java.com.yplaza.exception;
+package com.yplaza.exception;
 
 public class BadRequestException extends RuntimeException {
     public BadRequestException(String message) {

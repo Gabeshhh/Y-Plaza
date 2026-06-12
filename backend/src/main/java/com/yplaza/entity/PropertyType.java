@@ -1,4 +1,4 @@
-package main.java.com.yplaza.entity;
+package com.yplaza.entity;
 
 /** Type de bien immobilier */
 public enum PropertyType {

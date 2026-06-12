@@ -1,0 +1,45 @@
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: yplaza-db
+    environment:
+      POSTGRES_DB: yplaza
+      POSTGRES_USER: yplaza
+      POSTGRES_PASSWORD: yplaza
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yplaza"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: yplaza-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/yplaza
+      SPRING_DATASOURCE_USERNAME: yplaza
+      SPRING_DATASOURCE_PASSWORD: yplaza
+      JWT_SECRET: yplaza-secret-key-very-long-and-secure-256bits-minimum-required
+      JWT_EXPIRATION: 86400000
+      APP_CORS_ALLOWED_ORIGINS: http://localhost:4200,http://localhost
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    container_name: yplaza-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

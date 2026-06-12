@@ -1,4 +1,4 @@
-package main.java.com.yplaza.controller;
+package com.yplaza.controller;
 
 import com.yplaza.dto.response.ApiResponse;
 import com.yplaza.entity.Transaction;

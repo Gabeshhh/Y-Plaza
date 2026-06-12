@@ -1,4 +1,4 @@
-package main.java.com.yplaza.dto.request;
+package com.yplaza.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

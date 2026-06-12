@@ -1,4 +1,4 @@
-package main.java.com.yplaza.exception;
+package com.yplaza.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

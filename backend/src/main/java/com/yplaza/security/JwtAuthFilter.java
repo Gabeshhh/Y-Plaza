@@ -1,4 +1,4 @@
-package main.java.com.yplaza.security;
+package com.yplaza.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

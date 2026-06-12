@@ -1,4 +1,4 @@
-package main.java.com.yplaza.dto.response;
+package com.yplaza.dto.response;
 
 import com.yplaza.entity.Role;
 import lombok.AllArgsConstructor;

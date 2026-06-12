@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { analyticsAPI } from '../../services/api'
-import { useAuthStore } from '../../context/authStore'
+import { analyticsAPI } from '../services/api'
+import { useAuthStore } from '../context/authStore'
 
 export default function AnalyticsPage() {
   const { user, canAccessAnalytics } = useAuthStore()

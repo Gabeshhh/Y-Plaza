@@ -1,4 +1,4 @@
-package main.java.com.yplaza.repository;
+package com.yplaza.repository;
 
 import com.yplaza.entity.Property;
 import com.yplaza.entity.PropertyType;
