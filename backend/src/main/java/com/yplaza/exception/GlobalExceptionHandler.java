@@ -1,4 +1,4 @@
-package com.yplaza.exception;
+package main.java.com.yplaza.exception;
 
 import com.yplaza.dto.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;

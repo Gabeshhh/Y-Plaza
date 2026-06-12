@@ -1,4 +1,4 @@
-package com.yplaza.repository;
+package main.java.com.yplaza.repository;
 
 import com.yplaza.entity.Agency;
 import org.springframework.data.jpa.repository.JpaRepository;

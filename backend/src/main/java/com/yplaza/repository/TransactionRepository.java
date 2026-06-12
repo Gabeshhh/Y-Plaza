@@ -1,4 +1,4 @@
-package com.yplaza.repository;
+package main.java.com.yplaza.repository;
 
 import com.yplaza.entity.Transaction;
 import com.yplaza.entity.TransactionStatus;
