@@ -278,6 +278,21 @@ h1, h2, h3 {
   .card { border-radius: var(--radius-md); }
 }
 
+/* ── Responsive — détail bien (≤ 900px) ──────────────────────────── */
+@media (max-width: 900px) {
+  [style*="gridTemplateColumns: '1fr 360px'"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Print / export analytics ─────────────────────────────────────── */
+@media print {
+  .nav-links, .nav-actions, .nav-burger, button:not(.print-hide) { display: none !important; }
+  .page { padding: 0; }
+  .container { max-width: 100%; padding: 0 12px; }
+  body { background: #fff; }
+}
+
 /* ── Accessibilité : focus visible ────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-accent);

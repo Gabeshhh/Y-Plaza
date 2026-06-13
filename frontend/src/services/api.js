@@ -56,6 +56,7 @@ export const analyticsAPI = {
   getPriceByType: () => api.get('/analytics/price-by-type'),
   getTopProperties: () => api.get('/analytics/top-properties'),
   getRevenueByAgency: () => api.get('/analytics/revenue-by-agency'),
+  getPredictions: () => api.get('/analytics/predictions'),
 }
 
 export default api

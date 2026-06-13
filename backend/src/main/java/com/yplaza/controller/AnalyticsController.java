@@ -52,4 +52,9 @@ public class AnalyticsController {
     public ResponseEntity<ApiResponse<List<Map<String, Object>>>> getTopProperties() {
         return ResponseEntity.ok(ApiResponse.success(analyticsService.getTopProperties()));
     }
+
+    @GetMapping("/predictions")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getPredictions() {
+        return ResponseEntity.ok(ApiResponse.success(analyticsService.getPredictions()));
+    }
 }
