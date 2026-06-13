@@ -1,5 +1,6 @@
 package com.yplaza.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -54,10 +55,12 @@ public class Agency {
     @Column
     private Double longitude;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<User> users = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Property> properties = new ArrayList<>();

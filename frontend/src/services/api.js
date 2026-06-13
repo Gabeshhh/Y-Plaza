@@ -45,8 +45,9 @@ export const agenciesAPI = {
 
 export const transactionsAPI = {
   getAll: (params) => api.get('/transactions', { params }),
-  create: (data) => api.post('/transactions', data),
-  updateStatus: (id, status) => api.put(`/transactions/${id}/status`, { status }),
+  create: (propertyId) => api.post(`/transactions/property/${propertyId}`),
+  updateStatus: (id, status) => api.patch(`/transactions/${id}/status`, null, { params: { status } }),
+  getStats: () => api.get('/transactions/stats'),
 }
 
 export const analyticsAPI = {
