@@ -82,7 +82,7 @@ public class DataSeeder implements CommandLineRunner {
                 .build());
 
         User itSupport = userRepository.save(User.builder()
-                .firstName("Thomas").lastName("Bernard")
+                .firstName("Test").lastName("Cedric")
                 .email("it@yplaza.fr")
                 .password(passwordEncoder.encode("Admin123!"))
                 .role(Role.IT_SUPPORT)
