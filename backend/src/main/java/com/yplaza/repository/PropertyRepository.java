@@ -17,7 +17,7 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
 
     /** Recherche paginée avec filtres multiples */
     @Query("SELECT p FROM Property p WHERE p.active = true AND p.sold = false " +
-           "AND (:city IS NULL OR LOWER(p.city) LIKE LOWER(CONCAT('%', :city, '%'))) " +
+           "AND (cast(:city as string) IS NULL OR LOWER(p.city) LIKE LOWER(CONCAT('%', cast(:city as string), '%'))) " +
            "AND (:type IS NULL OR p.type = :type) " +
            "AND (:minPrice IS NULL OR p.price >= :minPrice) " +
            "AND (:maxPrice IS NULL OR p.price <= :maxPrice) " +
