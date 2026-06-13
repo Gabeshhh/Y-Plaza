@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { propertiesAPI, agenciesAPI } from '../../services/api'
-import PropertyCard from '../property/PropertyCard'
+import { propertiesAPI, agenciesAPI } from '../services/api'
+import PropertyCard from '../components/property/PropertyCard'
 
 export default function HomePage() {
   const [topProperties, setTopProperties] = useState([])

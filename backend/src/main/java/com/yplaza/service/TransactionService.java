@@ -72,6 +72,10 @@ public class TransactionService {
         return transactionRepository.save(transaction);
     }
 
+    public Page<Transaction> getAll(Pageable pageable) {
+        return transactionRepository.findAll(pageable);
+    }
+
     public Page<Transaction> getByBuyer(Long buyerId, Pageable pageable) {
         return transactionRepository.findByBuyerId(buyerId, pageable);
     }

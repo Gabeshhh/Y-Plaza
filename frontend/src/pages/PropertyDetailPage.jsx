@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { propertiesAPI, transactionsAPI } from '../../services/api'
-import { useAuthStore } from '../../context/authStore'
+import { propertiesAPI, transactionsAPI } from '../services/api'
+import { useAuthStore } from '../context/authStore'
 
 const TYPE_LABELS = {
   APPARTEMENT: 'Appartement', MAISON: 'Maison', VILLA: 'Villa',

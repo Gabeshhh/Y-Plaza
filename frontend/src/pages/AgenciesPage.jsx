@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { agenciesAPI } from '../../services/api'
+import { agenciesAPI } from '../services/api'
 
 export default function AgenciesPage() {
   const [agencies, setAgencies] = useState([])

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuthStore } from '../../context/authStore'
-import { agenciesAPI } from '../../services/api'
+import { useAuthStore } from '../context/authStore'
+import { agenciesAPI } from '../services/api'
 
 const ROLES = [
   { value: 'CLIENT', label: 'Client' },

@@ -25,7 +25,7 @@ export default function Navbar() {
         </Link>
 
         {/* Nav links — desktop */}
-        <div style={styles.links} role="menubar">
+        <div className="nav-links" style={styles.links} role="menubar">
           <Link to="/properties" style={{
             ...styles.link,
             ...(isActive('/properties') ? styles.linkActive : {})
@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
 
         {/* Auth actions */}
-        <div style={styles.actions}>
+        <div className="nav-actions" style={styles.actions}>
           {user ? (
             <>
               <span style={styles.userName} aria-label={`Connecté en tant que ${user.fullName}`}>
@@ -78,11 +78,12 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
+          className="btn btn-ghost nav-burger"
           style={styles.burger}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
-          aria-label="Menu mobile"
-          className="btn btn-ghost"
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         >
           {menuOpen ? '✕' : '☰'}
         </button>
@@ -90,7 +91,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div style={styles.mobileMenu} role="menu" aria-label="Menu mobile">
+        <div id="mobile-menu" style={styles.mobileMenu} role="menu" aria-label="Menu mobile">
           <Link to="/properties" style={styles.mobileLink} onClick={() => setMenuOpen(false)}>Biens</Link>
           <Link to="/agencies" style={styles.mobileLink} onClick={() => setMenuOpen(false)}>Agences</Link>
           {user && canManageProperties() && (
@@ -166,7 +167,6 @@ const styles = {
     display: 'flex',
     gap: 4,
     flex: 1,
-    '@media (max-width: 768px)': { display: 'none' },
   },
   link: {
     padding: '6px 14px',
@@ -208,10 +208,8 @@ const styles = {
     padding: '8px 16px',
   },
   burger: {
-    display: 'none',
     fontSize: 20,
     padding: '8px',
-    '@media (max-width: 768px)': { display: 'flex' },
   },
   mobileMenu: {
     display: 'flex',

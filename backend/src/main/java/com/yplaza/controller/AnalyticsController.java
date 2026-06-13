@@ -3,7 +3,7 @@
 
 */
 
-package main.java.com.yplaza.controller;
+package com.yplaza.controller;
 
 import com.yplaza.dto.response.ApiResponse;
 import com.yplaza.service.AnalyticsService;
@@ -51,5 +51,10 @@ public class AnalyticsController {
     @GetMapping("/top-properties")
     public ResponseEntity<ApiResponse<List<Map<String, Object>>>> getTopProperties() {
         return ResponseEntity.ok(ApiResponse.success(analyticsService.getTopProperties()));
+    }
+
+    @GetMapping("/predictions")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getPredictions() {
+        return ResponseEntity.ok(ApiResponse.success(analyticsService.getPredictions()));
     }
 }

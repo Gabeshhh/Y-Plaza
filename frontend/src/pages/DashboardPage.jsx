@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { propertiesAPI, transactionsAPI } from '../../services/api'
-import { useAuthStore } from '../../context/authStore'
-import PropertyCard from '../property/PropertyCard'
+import { propertiesAPI, transactionsAPI } from '../services/api'
+import { useAuthStore } from '../context/authStore'
+import PropertyCard from '../components/property/PropertyCard'
 
 export default function DashboardPage() {
   const { user, canManageProperties } = useAuthStore()

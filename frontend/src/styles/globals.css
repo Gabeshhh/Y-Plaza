@@ -245,8 +245,65 @@ h1, h2, h3 {
 .alert-success { background: #dcfce7; color: #166534; border-left: 3px solid #22c55e; }
 .alert-info { background: #dbeafe; color: #1e40af; border-left: 3px solid #3b82f6; }
 
-/* Responsive */
+/* ── Navbar responsive ─────────────────────────────────────────────── */
+.nav-links { display: flex; }
+.nav-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.nav-burger { display: none; }
+.nav-username { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+
+/* ── Responsive — tablette (≤ 768px) ──────────────────────────────── */
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
   .property-grid { grid-template-columns: 1fr; }
+
+  .nav-links { display: none; }
+  .nav-actions { display: none; }
+  .nav-burger { display: flex; }
+
+  .page { padding: 24px 0; }
+}
+
+/* ── Responsive — mobile (≤ 480px) ────────────────────────────────── */
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+
+  h1 { font-size: clamp(28px, 8vw, 48px) !important; }
+  h2 { font-size: clamp(20px, 6vw, 32px) !important; }
+
+  .btn { padding: 10px 18px; font-size: 13px; }
+  .btn-accent, .btn-outline { width: 100%; justify-content: center; }
+
+  .property-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .card { border-radius: var(--radius-md); }
+}
+
+/* ── Responsive — détail bien (≤ 900px) ──────────────────────────── */
+@media (max-width: 900px) {
+  [style*="gridTemplateColumns: '1fr 360px'"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Print / export analytics ─────────────────────────────────────── */
+@media print {
+  .nav-links, .nav-actions, .nav-burger, button:not(.print-hide) { display: none !important; }
+  .page { padding: 0; }
+  .container { max-width: 100%; padding: 0 12px; }
+  body { background: #fff; }
+}
+
+/* ── Accessibilité : focus visible ────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Préférences de mouvement réduit ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -6,7 +6,7 @@
     - /api/auth/rergister 
     - /api/auth/login 
 */
-package main.java.com.yplaza.controller;
+package com.yplaza.controller;
 
 import com.yplaza.dto.request.LoginRequest;
 import com.yplaza.dto.request.RegisterRequest;
